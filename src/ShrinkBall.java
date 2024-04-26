@@ -3,11 +3,10 @@ import java.awt.*;
 public class ShrinkBall extends BasicBall {
     private final double shrinkFactor = 2.0/3.0;
     private double originalRadius;
-    private int hitCount = 0;
 
+    // Constructor for ShrinkBall
     public ShrinkBall(double r, Color c) {
         super(r, c);
-        hitCount = 0;
         originalRadius = radius;
     }
 
@@ -15,14 +14,11 @@ public class ShrinkBall extends BasicBall {
         boolean answer = super.isHit(x, y);
         if (answer) {
             radius = radius * shrinkFactor;
-            hitCount = (hitCount + 1) % 3;
-            if (hitCount == 0) {
+            // If the radius is less than 25% of the original radius, reset the radius to the original radius
+            if (radius <= originalRadius * 0.25) {
                 radius = originalRadius;
-                reset();
             }
-            else{
-                resetLocation();
-            }
+            resetLocation();
         }
         return answer;
     }
