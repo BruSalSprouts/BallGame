@@ -49,19 +49,27 @@ public class BasicBall {
     	
     }
 
+    // reset the ball to a random position
     protected void resetLocation(){
         rx = 0.0;
         ry = 0.0;
     }
 
+    // reset the ball to a random speed
+    protected void resetSpeed(){
+        vx = StdRandom.uniform(-0.01, 0.01);
+        vy = StdRandom.uniform(-0.01, 0.01);
+    }
+
+    // reset the ball to a random position and speed
     public int reset() {
         resetLocation();
         // TO DO: assign a random speed
-        vx = StdRandom.uniform(-0.01, 0.01);
-        vy = StdRandom.uniform(-0.01, 0.01);
+        resetSpeed();
         return 1;
     }
-    
+
+    // check if the ball is hit by a click at (x, y)
     public boolean isHit(double x, double y) {
     	if ((Math.abs(rx-x)<=radius) && (Math.abs(ry-y)<=radius)){
             return true;
@@ -69,15 +77,19 @@ public class BasicBall {
 		else return false;
 
     }
+
+    // return the score of the ball
     public int getScore() {
         System.out.println("Basic Ball Scored!");
     	return 25;
     }
-    
+
+    // return the radius of the ball
     public double getRadius() {
     	return radius;
     }
 
+    // return the name of the ball
     public String getName(){
         	return "BasicBall";
     }

@@ -10,6 +10,8 @@ public class ShrinkBall extends BasicBall {
         originalRadius = radius;
     }
 
+    // If the ball is hit, shrink the radius by the shrink factor (until it reaches 25% of the original radius,
+    // then reset radius to original radius), reset the ball, and return true
     public boolean isHit(double x, double y) {
         boolean answer = super.isHit(x, y);
         if (answer) {
@@ -18,18 +20,21 @@ public class ShrinkBall extends BasicBall {
             if (radius <= originalRadius * 0.25) {
                 radius = originalRadius;
             }
-            resetLocation();
+            reset();
         }
         return answer;
     }
 
+    // Returns the score for the ShrinkBall
     public int getScore() {
         System.out.println("Shrink ball Scored!");
         return 20;
     }
+    // Returns the radius of the ShrinkBall
     public double getRadius() {
         return radius;
     }
+    // Returns the name of the ball
     public String getName(){
         return "ShrinkBall";
     }
