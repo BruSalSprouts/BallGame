@@ -6,6 +6,7 @@ public class SplitBall extends BasicBall {
     }
 
     public int getScore() {
+        System.out.println("Split Ball Scored!");
         return 10;
     }
     public double getRadius() {

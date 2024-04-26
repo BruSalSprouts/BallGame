@@ -7,6 +7,7 @@ public class BounceBall extends BasicBall {
     }
 
     public int getScore() {
+        System.out.println("Bounce Ball Scored!");
         return 15;
     }
     public double getRadius() {

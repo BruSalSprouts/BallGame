@@ -49,9 +49,13 @@ public class BasicBall {
     	
     }
 
-    public int reset() {
+    protected void resetLocation(){
         rx = 0.0;
-        ry = 0.0;  	
+        ry = 0.0;
+    }
+
+    public int reset() {
+        resetLocation();
         // TO DO: assign a random speed
         vx = StdRandom.uniform(-0.01, 0.01);
         vy = StdRandom.uniform(-0.01, 0.01);
@@ -66,6 +70,7 @@ public class BasicBall {
 
     }
     public int getScore() {
+        System.out.println("Basic Ball Scored!");
     	return 25;
     }
     

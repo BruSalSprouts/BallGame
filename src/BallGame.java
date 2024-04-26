@@ -38,7 +38,7 @@ public class BallGame {
     		index = index+2;
     	}
      
-    	//TO DO: create a Player object and initialize the player game stats.  
+    	//Create a Player object and initialize the player game stats.
     	Player player = new Player();
     	
     	//number of active balls
@@ -50,12 +50,7 @@ public class BallGame {
         StdDraw.setXscale(-1.0, +1.0);
         StdDraw.setYscale(-1.0, +1.0);
 
-        // create colored balls 
-        //TO DO: Create "numBalls" balls (of types given in "ballTypes" with sizes given in "ballSizes") and store them in an Arraylist
-//   		BasicBall ball = new BasicBall(ballSizes[0],Color.RED);
-
         List<BasicBall> balls = new ArrayList<BasicBall>();
-//        balls.add(ball);
            for (int i = 0; i < numBalls; i++) {
                switch (ballTypes[i]){
                    case "basic":
@@ -72,7 +67,7 @@ public class BallGame {
                        break;
                }
            }
-   		//TO DO: initialize the numBallsinGame
+   		//Initialize the numBallsinGame
    		numBallsinGame = balls.size();
         
         // do the animation loop
@@ -106,18 +101,10 @@ public class BallGame {
             StdDraw.clear(StdDraw.GRAY);
             StdDraw.setPenColor(StdDraw.BLACK);
             
-            //TO DO: check each ball and see if they are still visible. numBallsinGame should hold the number of visible balls in the game.
+            //Check each ball and see if they are still visible. numBallsinGame should hold the number of visible balls in the game.
             for (BasicBall ball : balls){
                 if (!ball.isOut){
                     ball.draw();
-                    numBallsinGame++;
-                }
-
-            }
-
-            for (BasicBall b : balls) {
-                if (!b.isOut) {
-                    b.draw();
                     numBallsinGame++;
                 }
             }
@@ -127,7 +114,6 @@ public class BallGame {
             Font smallerFont = new Font("Arial", Font.BOLD, 20);
             StdDraw.setFont(smallerFont);
             StdDraw.text(-0.65, 0.90, "Number of balls in game: "+ String.valueOf(numBallsinGame));
-            //TO DO: print the rest of the player statistics
             // Print the player's score
             StdDraw.text(-0.65, 0.80, "Score: " + String.valueOf(player.getScore()));
             StdDraw.show();
@@ -140,7 +126,7 @@ public class BallGame {
             StdDraw.text(0, 0, "GAME OVER");
             StdDraw.setFont(smallerFont);
             StdDraw.setPenColor(StdDraw.ORANGE);
-            //TO DO: print the rest of the player statistics
+
             // Number of hits for all types of balls is given by Player.getNumBallsHit()
             StdDraw.text(0, -0.10, "Number of hits for each ball type: ");
             StdDraw.text(0, -0.17, "Basic Ball Hits: " + player.getBallHitFailsafe("BasicBall") + "\r\n");
