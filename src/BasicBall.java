@@ -52,14 +52,17 @@ public class BasicBall {
     public int reset() {
         rx = 0.0;
         ry = 0.0;  	
-        // TO DO: assign a random speed 
+        // TO DO: assign a random speed
+        vx = StdRandom.uniform(-0.01, 0.01);
+        vy = StdRandom.uniform(-0.01, 0.01);
         return 1;
     }
     
     public boolean isHit(double x, double y) {
-    	if ((Math.abs(rx-x)<=radius) && (Math.abs(ry-y)<=radius))
-			return true;
-		else return false; 
+    	if ((Math.abs(rx-x)<=radius) && (Math.abs(ry-y)<=radius)){
+            return true;
+        }
+		else return false;
 
     }
     public int getScore() {
@@ -70,5 +73,7 @@ public class BasicBall {
     	return radius;
     }
 
-
+    public String getName(){
+        	return "BasicBall";
+    }
 }
