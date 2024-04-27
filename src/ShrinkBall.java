@@ -12,6 +12,7 @@ public class ShrinkBall extends BasicBall {
 
     // If the ball is hit, shrink the radius by the shrink factor (until it reaches 25% of the original radius,
     // then reset radius to original radius), reset the ball, and return true
+    @Override
     public boolean isHit(double x, double y) {
         boolean answer = super.isHit(x, y);
         if (answer) {
@@ -26,6 +27,7 @@ public class ShrinkBall extends BasicBall {
     }
 
     // Returns the score for the ShrinkBall
+    @Override
     public int getScore() {
         System.out.println("Shrink ball Scored!");
         return 20;
@@ -35,6 +37,7 @@ public class ShrinkBall extends BasicBall {
         return radius;
     }
     // Returns the name of the ball
+    @Override
     public String getName(){
         return "ShrinkBall";
     }

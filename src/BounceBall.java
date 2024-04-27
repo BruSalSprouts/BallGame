@@ -20,6 +20,7 @@ private int bounceCount; // number of times the ball has bounced off the wall
         return radius;
     }
 
+    @Override
     /// Moves the BounceBall
     public void move() {
         rx = rx + vx;
@@ -29,6 +30,7 @@ private int bounceCount; // number of times the ball has bounced off the wall
     /* Draws the BounceBall. If it hits the edge it bounces,
     unless it has bounced 3 times, in which case it is out.
     */
+    @Override
     public void draw() {
         if ((Math.abs(rx) <= 1.0) && (Math.abs(ry) <= 1.0)) {
             StdDraw.setPenColor(color);
