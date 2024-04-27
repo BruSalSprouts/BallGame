@@ -10,6 +10,7 @@
  ******************************************************************************/
 
 import java.awt.Color;
+import java.util.List;
 
 public class BasicBall { 
     protected double rx, ry;         // position
@@ -92,6 +93,10 @@ public class BasicBall {
     // return the name of the ball
     public String getName(){
         	return "BasicBall";
+    }
+
+    public void onHit(List<BasicBall> balls){
+        /* do nothing */
     }
 
 }

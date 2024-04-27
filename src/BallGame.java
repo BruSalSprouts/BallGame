@@ -95,6 +95,8 @@ public class BallGame {
                         //TO DO: Update player statistics
                         player.increaseBallHits(ball.getName());
                         player.increaseScore(ball.getScore());
+                        ball.onHit(balls);
+
                     }
                 }
             }

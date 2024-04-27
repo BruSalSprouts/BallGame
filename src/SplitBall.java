@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.List;
 
 public class SplitBall extends BasicBall {
     private BallGame ballGame; // reference to the BallGame class
@@ -21,23 +22,22 @@ public class SplitBall extends BasicBall {
         return "SplitBall";
     }
 
-    // If the ball is hit, split the ball into two balls of half the radius, reset the ball, and return true
-    public boolean isHit(double x, double y) {
-        boolean answer = super.isHit(x, y);
-        if (answer) {
-            SplitBall ball2 = new SplitBall(radius / 2.0, color);
-            ball2.rx = rx;
-            ball2.ry = ry;
-            ball2.vx = vx;
-            ball2.vy = -vy;
-            // Add the new ball to the list of balls. However, the list of balls is not accessible from this class.
-            // To do this, I will need to add a method to the BallGame class that adds a ball to the list of balls.
-            // And is called from here.
-            BallGame.addSplitBall(ball2);
-            reset();
-        }
-        return answer;
+    private BasicBall newBall(double r, Color c) {
+        SplitBall ball1 = new SplitBall(radius, color);
+        ball1.rx = rx;
+        ball1.ry = ry;
+        ball1.vx = -vx;
+        ball1.vy = vy;
+
+
+        return ball1;
     }
 
-    //
+    @Override
+    public void onHit(List<BasicBall> balls) {
+        balls.add(this.newBall(radius, color));
+        balls.add(this.newBall(radius, color));
+        this.isOut = true;
+    }
+
 }
